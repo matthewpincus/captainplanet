@@ -7,7 +7,9 @@ from captain_planet_game import CaptainPlanetGame
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
-bot = commands.Bot(command_prefix='!')
+intents = discord.Intents.default()
+intents.message_content = True
+bot = commands.Bot(command_prefix='!', intents=intents)
 game_instances = {}
 
 @bot.event
